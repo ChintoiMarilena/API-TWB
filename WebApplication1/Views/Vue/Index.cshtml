@@ -40,7 +40,7 @@
                 Gen: {{ form.gen }}
                 <br>
                 Informati:
-                {{form}}
+                {{form}}{{info}}
             </span>
         </div>
     </section>
@@ -53,16 +53,13 @@
             form: {
                 nume: '',
                 salariu: 0
-
-
             },
             info: null
         },
         mounted() {
             axios
                 .get('localhost:57113/Api/Angajats/GetAngajat/1')
-                .then(response => (this.form = response.data
-                )
+                .then(response => (this.form = response.data)
         }
     })
 </script>
