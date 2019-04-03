@@ -82,7 +82,7 @@ namespace WebApplication1.Controllers
         {
             if (!ModelState.IsValid)
             {
-                return BadRequest(ModelState);
+                return BadRequest(ModelState); //comentariu
             }
 
             db.Angajat.Add(angajat);
