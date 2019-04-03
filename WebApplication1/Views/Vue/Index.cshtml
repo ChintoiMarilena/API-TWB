@@ -1,0 +1,69 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2 style="color:red;text-align:center">Formular</h2>
+<div id="angajat">
+
+    <section class="form">
+        <div class="field">
+            <label class="label" style="color:black">Nume</label>
+            <div class="control">
+                <input v-model="form.nume" class="input" type="text" placeholder="Nume">
+               
+            </div>
+            <label class="label" style="color:black">Salariu</label>
+            <div class="control">
+                <input v-model="form.salariu" class="input" type="number" placeholder="0">
+                
+            </div>
+            <label class="label" style="color:black">Data Angajati</label>
+            <div class="control">
+                <input v-model="form.dataang" class="input" type="date" placeholder="Data Angajari">
+                
+            </div>
+
+            <input type="radio" id="f" value="F" v-model="form.gen">
+            <label for="f">Feminin</label>
+            <br>
+            <input type="radio" id="m" value="M" v-model="form.gen">
+            <label for="m">Masculin</label>
+            <br>
+            <span>
+                Nume: {{form.nume}}
+                <br>
+                Salariu:  {{form.salariu}}
+                <br>
+                Data Angajari :{{form.dataang}}
+                <br>
+                Gen: {{ form.gen }}
+                <br>
+                Informati:
+                {{form}}
+            </span>
+        </div>
+    </section>
+</div>
+  
+<script>
+    new Vue({
+        el: '#angajat',
+        data: {
+            form: {
+                nume: '',
+                salariu: 0
+
+
+            },
+            info: null
+        },
+        mounted() {
+            axios
+                .get('localhost:57113/Api/Angajats/GetAngajat/1')
+                .then(response => (this.form = response.data
+                )
+        }
+    })
+</script>
+

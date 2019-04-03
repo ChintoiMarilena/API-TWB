@@ -1,0 +1,21 @@
+﻿
+<h2>Index</h2>
+
+<section class="form">
+    <div class="field">
+        <label class="label">Name</label>
+        <div class="control">
+            <input v-model="form.name" class="input" type="text" placeholder="Text input">
+        </div>
+    </div>
+</section>
+<script>
+new Vue({
+  el: '#app',
+  data: {
+    form : {
+      name: ''
+    }
+  }
+})
+</script>
